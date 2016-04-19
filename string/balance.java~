@@ -1,0 +1,65 @@
+import java.io.*;
+import java.util.*;
+import java.lang.*;
+
+
+public class balance
+{
+	//public void main(int i,)
+	//{
+	//	if(str[i]=='}'&& )
+				
+	public static void main(String args[])
+	{
+		//char str[]=new char[10];
+		String str1;
+		//char a[]={'{','}','(',')','[',']'};
+		
+		Scanner s=new Scanner(System.in);
+		Stack st=new Stack();
+		str1=s.next();
+		char str[]=str1.toCharArray();
+		int len=str1.length();
+		int i;
+		for(i=0;i<len;i++)
+		{
+			//st.push(str[i]);
+			if(str[i]=='{' || str[i]=='(' || str[i]=='[')
+			{
+				// System.out.println(str[i]);
+				st.push(str[i]);
+
+			}
+			else if(str[i]=='}' || str[i]==')' || str[i]==']')
+			{
+				 //System.out.println(st.peek());
+			        if(str[i]=='}'&& st.peek()!='{' || st.isEmpty())
+				{
+						break;
+				}
+				else if(str[i]==']'&& st.peek()!='[' || st.isEmpty())
+				{
+						break;
+				}
+				else if(str[i]==')'&& st.peek()!='(' || st.isEmpty())
+				{
+						break;
+				}
+				else
+				{
+					//System.out.println(st.peek());
+					System.out.println("dei");										
+					st.pop();
+				}
+
+			}
+			
+		}
+		//System.out.println(st.peek());	
+		if(st.isEmpty())
+	       	        System.out.println("Yes");
+		else
+			System.out.println("No");
+						
+	}
+}	

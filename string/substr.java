@@ -1,0 +1,28 @@
+import java.lang.*;
+import java.io.*;
+import java.util.*;
+public class substr
+{
+	public static void main(String[] args) 
+	{
+  		String str;
+		int i,j,k;
+		Scanner s=new Scanner(System.in);
+		str=s.nextLine();
+		int len=str.length();
+		for(i=1;i<=len;i++)
+		{
+			for(j=0;j<len;j++)
+			{
+				if(i+j>len)
+					break;
+				k=i+j;
+					System.out.println(str.substring(j,k));
+			}
+		}
+	}
+}
+
+
+
+

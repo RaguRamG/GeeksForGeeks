@@ -1,0 +1,58 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+typedef struct tree
+{
+	int data;
+	struct tree *left;
+	struct tree *right;
+}tree;
+
+tree *insert(tree *root,int x)
+{
+	//tree *newnode;
+	if(root==NULL)
+	{
+		root=(tree*)malloc(sizeof(tree));
+		root->left=NULL;		
+		root->right=NULL;		
+	}
+	else
+	{
+		if(root->right!=NULL)
+		{
+			root->left=insert(root,x);
+		}
+		else if(root->left!=NULL)
+		{
+			root->right=insert(root,x);
+		}
+	}
+	return root;
+}		
+
+		 
+void inorder(tree *root)
+{
+		if(root==NULL)
+			return;
+		inorder(root->left);
+		printf("%d\n",root->data);
+		inorder(root->right);
+}	
+
+
+int main()
+{
+	tree *root=NULL;
+	int i,j,n,ele;
+	printf("\nEnter the no of elements to create:");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&ele);
+		root=insert(root,ele);
+	}
+	inorder(root);	
+}	
+

@@ -1,0 +1,17 @@
+#include<stdio.h>
+
+void mergsort(int a[],int n)
+
+
+
+int main()
+{
+	int a[10],n,i,x;
+	printf("\nEnter the no of elements:");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&a[i]);	
+	}
+	mergsort(a,n);
+}
